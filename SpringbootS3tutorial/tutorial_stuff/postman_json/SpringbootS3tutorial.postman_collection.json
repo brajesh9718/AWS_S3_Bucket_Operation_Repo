@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "6d473db9-6562-4e3b-a9b3-f52d709a3968",
+		"name": "SpringbootS3tutorial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Upload file to AWS S3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Yatinbatra/Desktop/Some text.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9098//s3/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9098",
+					"path": [
+						"",
+						"s3",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download file from s3 bucket",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9098/s3/download?fileName=2020-03-26T21:29:41.957_Some text.txt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9098",
+					"path": [
+						"",
+						"s3",
+						"download"
+					],
+					"query": [
+						{
+							"key": "fileName",
+							"value": "2020-03-26T21:29:41.957_Some text.txt"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
