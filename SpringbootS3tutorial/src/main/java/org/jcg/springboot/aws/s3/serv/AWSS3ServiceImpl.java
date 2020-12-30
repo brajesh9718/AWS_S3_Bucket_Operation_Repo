@@ -95,14 +95,12 @@ public class AWSS3ServiceImpl implements AWSS3Service {
 				}
 	            zipOutputStream.putNextEntry(new ZipEntry(key));
 				InputStream stream = new BufferedInputStream(s3Object.getObjectContent());
-				//content = IOUtils.toByteArray(stream);
 				IOUtils.copy(stream, zipOutputStream);
 				LOGGER.info("File downloaded successfully.");
-				stream.close();
 	            zipOutputStream.closeEntry();
+				stream.close();
 			}
-			
-			
+			zipOutputStream.close();			
 		} catch (final IOException ex) {
 			LOGGER.info("IO Error Message= " + ex.getMessage());
 		}
