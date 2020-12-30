@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping(value= "/s3")
@@ -21,6 +22,11 @@ public class AWSS3Ctrl {
 
 	@Autowired
 	private AWSS3Service service;
+	
+	@GetMapping("/")
+	public ModelAndView index() {
+		return new ModelAndView("index");
+	}
 	
 	@GetMapping(value = "/sayHello")
 	public String sayHello() {
@@ -34,13 +40,12 @@ public class AWSS3Ctrl {
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 
-	// Requesting URl = http://localhost:9098/s3/download?fileName=PadnetReport1
 	@GetMapping(value= "/download")
 	public byte[] downloadFile(HttpServletResponse response) {
 		//setting headers
         response.setContentType("application/zip");
         response.setStatus(HttpServletResponse.SC_OK);
-        response.addHeader("Content-Disposition", "attachment; filename=\"test.zip\"");
+        response.addHeader("Content-Disposition", "attachment; filename=\"ZipFile.zip\"");
 		System.out.println("Inside downloadFile ....");
 		//final ByteArrayResource resource = new ByteArrayResource(data);
 		return service.downloadFile();

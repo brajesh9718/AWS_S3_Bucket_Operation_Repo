@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * Main implementation class which serves two purpose in a spring boot application: Configuration and bootstrapping.
- * @author yatin-batra
  */
 @SpringBootApplication
 public class SpringbootS3tutorial {
