@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping(value= "/s3")
@@ -23,11 +22,6 @@ public class AWSS3Ctrl {
 
 	@Autowired
 	private AWSS3Service service;
-	
-	@GetMapping("/")
-	public ModelAndView index() {
-		return new ModelAndView("index");
-	}
 	
 	@GetMapping(value = "/sayHello")
 	public String sayHello() {
