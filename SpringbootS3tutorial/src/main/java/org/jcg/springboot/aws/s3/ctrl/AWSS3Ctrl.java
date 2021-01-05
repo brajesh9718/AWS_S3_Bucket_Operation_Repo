@@ -38,7 +38,7 @@ public class AWSS3Ctrl {
 
 	@GetMapping(value= "/download")
 	@ResponseBody
-	public byte[] downloadFile(HttpServletResponse response) {
+	public byte[] downloadFile(HttpServletResponse response,String testName) {
 		//setting headers
         response.setContentType("application/zip");
         response.setStatus(HttpServletResponse.SC_OK);
